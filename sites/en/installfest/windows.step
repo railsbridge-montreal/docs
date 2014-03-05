@@ -1,14 +1,12 @@
-message <<-MARKDOWN
-These instructions should work for all versions of Windows from XP to Windows 8.
+message "These instructions should work for all versions of Windows from XP to Windows 8."
 
-You may need to login as Administrator, or give the Administrator password when installing some programs, depending on your Windows version and user settings.
+message "You may need to login as Administrator, or give the Administrator password when installing some programs, depending on your Windows version and user settings."
 
-Installing Ruby and Rails on Windows is easy thanks to the RailsBridge Virtual Machine.
-This setup will give you Ruby, Rails, Git and the Bash shell. Let's get started.
+message "Installing Ruby and Rails on Windows is easy thanks to the RailsBridge Virtual Machine."
+message "This setup will give you Ruby, Rails, Git and the Bash shell. Let's get started."
 
-Make sure you have performed the [pre-workshop steps](/pre_workshop) @TODO: LINK.
+message "Make sure you have performed the pre-workshop steps."
 
-MARKDOWN
 
 step "Launch Git" do
 
