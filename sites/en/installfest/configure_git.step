@@ -1,4 +1,4 @@
-message "(If you used RailsInstaller on Windows then you should already have `user.name` and `user.email` configured.)"
+
 
 console <<-BASH
 git config --global user.name "Your Actual Name"
@@ -21,11 +21,6 @@ git config --global color.status auto
 git config --global color.branch auto
   BASH
 
-  important do
-    message "If you are using Windows, you may need to install AnsiCon to see colors (otherwise you'll see gibberish).  If you didn't do this earlier, then you should do it now."
-
-    link_without_toc "windows_colors"
-  end
 end
 
 next_step "create_an_ssh_key"
