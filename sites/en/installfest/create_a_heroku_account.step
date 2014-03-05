@@ -1,3 +1,5 @@
+important "Skip this step if you are in the Intro to Programming course."
+
 message "We'll be using Heroku to put our apps online because it's simple and free for the tier we'll be needing."
 
 step "Visit the Heroku web site" do
@@ -29,7 +31,7 @@ end
 
 step "Add your SSH key to your Heroku account" do
   console "heroku keys:add"
-  
+
   message "hit enter to accept the default key file to use"
 end
 
