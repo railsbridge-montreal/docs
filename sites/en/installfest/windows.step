@@ -2,101 +2,106 @@ message <<-MARKDOWN
 These instructions should work for all versions of Windows from XP to Windows 8.
 
 You may need to login as Administrator, or give the Administrator password when installing some programs, depending on your Windows version and user settings.
+
+Installing Ruby and Rails on Windows is easy thanks to the RailsBridge Virtual Machine.
+This setup will give you Ruby, Rails, Git and the Bash shell. Let's get started.
+
+Make sure you have performed the [pre-workshop steps](/pre_workshop) @TODO: LINK.
+
 MARKDOWN
 
-step "Run RailsInstaller" do
+step "Launch Git" do
 
-  message <<-MARKDOWN
-  RailsInstaller includes Rails, Ruby, Git, and SQLite.
+  message "Launch Github for Windows. It will install a few dependencies. Once this is done, you may close it again."
 
-  Go to <http://railsinstaller.org/>, scroll to the 'Downloads' section, and download the RailsInstaller for Windows/Ruby 1.9.
-
-  Click on the downloaded file to run the install wizard.  Click Next at each step to accept the defaults.
-
-  Be sure to check the boxes for *Install git (recommended)* and  *Add executables for Ruby, DevKit Git (if checked above) to the PATH*
-
-  ![WinRailsInstaller.jpg](img/WinRailsInstaller.jpg)
-
-  Rails will be installed in C:\\RailsInstaller and the directory for your Rails projects will be C:\\Sites
-
-  MARKDOWN
-end
-
-step "Configure your git and ssh environment" do
-
-  important "At the end of the installer there will be a checkbox asking 'configure your git and ssh environment'. **Leave this box checked.** It will open a terminal window that you need to **type into**."
-
-  message "When it asks *Please enter your name, for example mine is: Wayne E. Seguin*"
-  message "Type *your actual full name* into the console and press **[enter]**"
-
-  message "When it asks *Please enter your email address, for example mine is: wayneeseguin@gmail.com*"
-  message "Type *your actual email address* into the console and press **[enter]**"
-
-  important "Use the **same email address** for heroku, git, github, and ssh."
-
-  tip do
-    message "After this step you will have some **git config settings** and you will also have an **ssh key**."
-  end
+  message "Launch the Git Shell. You can find a shortcut on your Desktop (grey circle with a cat), or locate **Git Shell** in All Programs under GitHub. A new (mostly black) window will open."
 
 end
 
-step "Windows 8 Only — Install Node.js" do
+step "Set up your Vagrant box" do
 
-  message "Go to <http://nodejs.org> and download the installer"
+  message "If the file railsbridgevm-3.2-a.box file you downloaded before the workshop isn't on your desktop, move it there."
 
-  message "Click on the downloaded file to run the install wizard. Click Next at each step to accept the defaults."
+  message "Then type the following commands. Press ENTER after each command and wait for the operation to finish before typing the next one."
 
-  message "**Reboot your computer.**"
+  console <<-BASH
+    mkdir ~/Desktop/railsbridge
+    cd ~/Desktop/railsbridge
+    vagrant box add railsbridgemontreal railsbridgevm-3.2-a.box
+    vagrant init railsbridgemontreal
+    vagrant up
+    vagrant ssh
+  BASH
 
-  message "Once your computer is back up, load **Command Prompt with Ruby and Rails** (see below) and..."
+  message "If the process seems to hang after vagrant up, try hitting the ENTER key to get it going."
 
-  console "node -v"
-  fuzzy_result "v0{FUZZY}.8.x{/FUZZY}"
+  message "After typing the last command, here is what you should see (approximately):"
+
+  console <<-BASH
+    C:\\Users\\DiligentStudent\\Desktop\\railsbridge> vagrant init railsbridgemontreal
+
+    A `Vagrantfile` has been placed in this directory. You are now
+    ready to `vagrant up` your first virtual environment! Please read
+    the comments in the Vagrantfile as well as documentation on
+    `vagrantup.com` for more information on using Vagrant.
+    C:\\Users\\DiligentStudent\\Desktop\\railsbridge> vagrant up
+  BASH
+
+  message "Bringing machine 'default' up with 'virtualbox' provider..."
+
+  console <<-BASH
+       ...many lines left out...
+    [default] -- /vagrant
+    C:\\Users\\Diligent Student\\Desktop\\railsbridge> vagrant ssh
+    Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic-pae i686)
+       ...many lines left out...
+    vagrant@precise32:~$
+  BASH
+
 end
 
-step "Update Rails" do
-  message "Currently, RailsInstaller installs Rails 3.2.x, but we want 4.x. Upgrading Rails is pretty easy:"
+step "Open another Vagrant shell" do
+  message "Leave this terminal window open on your computer. To open an extra Terminal (console) into the virtual machine, open another Git Shell window, then type:"
 
-  console "gem install rails"
+  console <<-BASH
+cd ~/Desktop/railsbridge
+vagrant ssh
+vagrant@precise32:~$ cd workspace
+  BASH
 
-  message "...and you're done. New Rails! Woo."
+  tip "@TODO: workspace"
+
+  message "Continue with the next step of the Installfest. @TODO LINKY BACK"
 end
+
 
 step "Sanity Check" do
 
-  console "ruby -v"
-  fuzzy_result "ruby 1.9.3{FUZZY}p125{/FUZZY}"
-
-  console "rails -v"
-  fuzzy_result "Rails 4.0{FUZZY}.x{/FUZZY}"
+  message "@TODO"
 
 end
 
-step "Open a Terminal" do
-  message "Much of using Rails is typing commands and hitting **[enter]**.  Your experience using Rails on Windows greatly depends on your making friends with the terminal window.  Normally you will work in a terminal window and keep it open along with your browser."
 
-  tip "The Terminal is also called the Command Prompt, Command Line, DOS Prompt, or DOS Window."
+step "Usage Tips" do
+  tip "Turning the virtual machine off and on" do
 
-  message "RailsInstaller made a special Terminal for you to use when you're working on Ruby, Rails, or Git."
+    message "When you're done for the day, logout and stop your machine:"
 
-  message "To open the special Terminal, choose **All Programs** on the Start menu, then choose **RailsInstaller** and then **Command Prompt with Ruby and Rails**. You should do all your Rails work in this RailsInstaller DOS window."
+    console <<-BASH
+logout
+vagrant halt
+    BASH
 
-  img src: 'img/railsbridge_findingCommandPrompt.png'
+    message "And close the Git Shell window."
 
-  tip "Pin It to Win It" do
-    img src: 'img/railsbridge_windowsScreenshot-commandprompt-pinnedtotaskbar.png', alt: 'Pin the Command Prompt to the Task Bar'
+    message "When you want to use the virtual machine (tomorrow morning, for instance), start your machine. Launch Git Shell, then:"
+
+    console <<-BASH
+  cd ~/Desktop/railsbridge
+  vagrant up
+  vagrant ssh
+    BASH
   end
-
-  message "Here is a summary of your settings after this process:"
-
-  img src: 'img/railsbridge_windowsScreenshot-commandprompt_ror.jpg'
-
-end
-
-step "Configure the Windows Terminal" do
-  message "Take a moment to configure the *Command Prompt with Ruby and Rails* so that it is a good height and width and has a nice font.  Hint -- click to open the link below, and when you finish those steps, hit the **back** button in your browser to resume this procedure."
-
-  link "configure_the_windows_terminal"
 
   tip "Clearing the Terminal" do
     message "If you ever want to clear the terminal of all its cluttered output"
@@ -115,23 +120,5 @@ step "Configure the Windows Terminal" do
   end
 end
 
-step "Install Windows Colors" do
-
-  message "This step is optional, but **highly** recommended.  Hint -- click to open the link below, and when you finish those steps, hit the **back** button in your browser to resume this procedure."
-
-  link "windows_colors"
-end
-
-step "Install a Text Editor" do
-  message "You need a text editor to do Ruby. If you already have a preferred text editor, such as vi, emacs, jedit, etc., you can skip this step. It must be a plain text editor and not something with styling like Microsoft Word or WordPad."
-
-  message "Notepad is not a good programming editor, but it will work in a pinch."
-
-  important "**When in doubt, use Sublime Text 2.**"
-
-  message "[Sublime Text 2](http://www.sublimetext.com/2) is a good option, if you don't have one yet."
-
-  message "Download Sublime Text 2 here: <http://www.sublimetext.com/2>"
-end
 
 next_step "configure_git"
