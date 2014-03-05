@@ -14,7 +14,7 @@ MARKDOWN
 
 message <<-MARKDOWN
 
-We assume you've already made at least one Rails app in the past. If you already have a working Rails setup on your laptop, you do not need to do this. To check if you have a working Rails setup, try @TODO link , running `bundle` and running the app with `rails server`. If you can see your newly created app in the browser, you're in the clear.
+We assume you've already made at least one Rails app in the past. If you already have a working Rails setup on your laptop, you do not need to do this. To check if you have a working Rails setup, try [creating a new Rails app](/intro-to-rails/getting_started) , running `bundle` and running the app with `rails server`. If you can see your newly created app in the browser, you're in the clear.
 MARKDOWN
 
 message <<-MARKDOWN
