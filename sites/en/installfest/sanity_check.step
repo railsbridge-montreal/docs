@@ -1,3 +1,5 @@
+important "Skip this step if you are in the Intro to Programming course."
+
 step "Have a volunteer check your tool versions" do
 
   message "Find a volunteer and have them watch the next steps."

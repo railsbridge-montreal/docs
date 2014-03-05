@@ -72,14 +72,6 @@ vagrant@precise32:~$ cd workspace
   message "Continue with the next step of the Installfest. @TODO LINKY BACK"
 end
 
-
-step "Sanity Check" do
-
-  message "@TODO"
-
-end
-
-
 step "Usage Tips" do
   tip "Turning the virtual machine off and on" do
 
