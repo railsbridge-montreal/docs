@@ -28,7 +28,7 @@ Below is an example.
 end
 
 step "Choose your instructions" do
-  
+
   option "Mavericks" do
     link "osx_rvm"
   end
@@ -40,6 +40,7 @@ step "Choose your instructions" do
     option_half "Manually" do
       message "If something went wrong with RailsInstaller, or you want to do things the 'long way', use these instructions."
       link "osx_rvm"
+      link "osx_vagrant"
     end
   end
 
