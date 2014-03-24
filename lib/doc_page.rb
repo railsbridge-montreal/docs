@@ -63,7 +63,7 @@ class DocPage < Html5Page
   end
 
   def git_url
-    "https://github.com/railsbridge/docs/blob/master/sites/#{@locale}/#{@site_name}/#{file_name}"
+    "https://github.com/railsbridge-montreal/docs/blob/master/sites/#{@locale}/#{@site_name}/#{file_name}"
   end
 
   def src_url
@@ -91,15 +91,15 @@ class DocPage < Html5Page
 
       div(class: "navbar-header cf title") {
         a(href: "/#{site_name}") {
-          span("RailsBridge ", class: "brand")
+          span("RailsBridge Montreal ", class: "brand")
           text site_title
         }
       }
       ul(class: "navbar-nav nav") {
 
-        li {
-          widget Flags
-        }
+        # li {
+        #   widget Flags
+        # }
 
         li(class: "dropdown") {
           a("sites", href: "#", class: "dropdown-toggle", "data-toggle" => "dropdown")
@@ -131,17 +131,17 @@ class DocPage < Html5Page
     }
 
     footer {
-      p "RailsBridge Docs is maintained by RailsBridge volunteers."
+      p "RailsBridge Montreal Docs is maintained by RailsBridge volunteers."
       p do
         text "If you find something that could be improved, please make a "
-        a "pull request ", href: "https://github.com/railsbridge/docs"
+        a "pull request ", href: "https://github.com/railsbridge-montreal/docs"
         text "or "
-        a "drop us a note ", href: "https://github.com/railsbridge/docs/issues/new"
+        a "drop us a note ", href: "https://github.com/railsbridge-montreal/docs/issues/new"
         text "via GitHub Issues (no technical knowledge required)."
       end
       p do
         text "Source: "
-        url "https://github.com/railsbridge/docs"
+        url "https://github.com/railsbridge-montreal/docs"
       end
     }
   end

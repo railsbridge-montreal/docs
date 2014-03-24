@@ -1,9 +1,17 @@
 message <<MARKDOWN
-This site is maintained by RailsBridge volunteers. If you find something that could be improved, please make a [pull request](https://github.com/railsbridge/docs) or [drop us a note](https://github.com/railsbridge/docs/issues/new) via GitHub Issues (no technical knowledge required).
+This site is a fork of the main RailsBridge documentation site and is maintained by RailsBridge Montreal volunteers. If you find something that could be improved, please make a [pull request](https://github.com/railsbridge-montreal/docs) or [drop us a note](https://github.com/railsbridge-montreal/docs/issues/new) via GitHub Issues (no technical knowledge required).
+MARKDOWN
+
+site_desc 'before-the-workshop', <<-MARKDOWN
+Instructions for software to download before arriving at the workshop!
 MARKDOWN
 
 site_desc 'installfest', <<-MARKDOWN
 Instructions for installing Ruby and Rails on your computer. You are required to do this before going to a Rails workshop!
+MARKDOWN
+
+site_desc 'learn-to-code', <<-MARKDOWN
+A course which teaches how to code from the ground up, using Alex's [Learn To Code In Ruby](http://codelikethis.com/lessons/learn_to_code) curriculum. It's geared towards people who may never have written code before and teaches just enough Ruby to get across basic principles like variables, objects, and the command line.
 MARKDOWN
 
 site_desc 'intro-to-rails', <<-MARKDOWN
@@ -11,15 +19,11 @@ The "classic" RailsBridge curriculum (Suggestotron). Takes you step-by-step thro
 MARKDOWN
 
 site_desc 'intermediate-rails', <<-MARKDOWN
-Curriculum for students who have taken Suggestotron more than once. 'Easy mode' is now OFF - this curriculum won't tell you what to type in!
+Curriculum for students who have taken Suggestotron more than once or who have lots of experience in web development. 'Easy mode' is now OFF - this curriculum won't tell you what to type in!
 MARKDOWN
 
 site_desc 'frontend', <<-MARKDOWN
 HTML + CSS for beginners. Make a website, no server required!
-MARKDOWN
-
-site_desc 'learn-to-code', <<-MARKDOWN
-A course which teaches how to code from the ground up, using Alex's [Learn To Code In Ruby](http://codelikethis.com/lessons/learn_to_code) curriculum. It's geared towards people who may never have written code before and teaches just enough Ruby to get across basic principles like variables, objects, and the command line.
 MARKDOWN
 
 site_desc 'ruby', <<-MARKDOWN
