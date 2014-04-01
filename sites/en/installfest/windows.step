@@ -18,14 +18,14 @@ end
 
 step "Set up your Vagrant box" do
 
-  message "If the file railsbridgevm-3.2-a.box file you downloaded before the workshop isn't on your desktop, move it there."
+  message "If the file railsbridgevm-2014-04.box file you downloaded before the workshop isn't on your desktop, move it there."
 
   message "Then type the following commands. Press ENTER after each command and wait for the operation to finish before typing the next one."
 
   console <<-BASH
     mkdir ~/Desktop/railsbridge
     cd ~/Desktop/railsbridge
-    vagrant box add railsbridgemontreal railsbridgevm-3.2-a.box
+    vagrant box add railsbridgemontreal railsbridgevm-2014-04.box
     vagrant init railsbridgemontreal
     vagrant up
     vagrant ssh

@@ -41,17 +41,17 @@ MARKDOWN
 
 message <<-MARKDOWN
 Download
-[VirtualBox](http://download.virtualbox.org/virtualbox/4.2.18/VirtualBox-4.2.18-88780-OSX.dmg)
+[VirtualBox](http://download.virtualbox.org/virtualbox/4.3.10/VirtualBox-4.3.10-93012-OSX.dmg)
 for Mac. Run the installer after it downloads.
 MARKDOWN
 
 message <<-MARKDOWN
-Download [Vagrant](https://dl.bintray.com/mitchellh/vagrant/Vagrant-1.4.3.dmg) for Mac. Run the installer after it downloads.
+Download [Vagrant](https://dl.bintray.com/mitchellh/vagrant/vagrant_1.5.1.dmg) for Mac. Run the installer after it downloads.
 MARKDOWN
 
 message <<-MARKDOWN
 Download
-[this file](http://s3.amazonaws.com/railsbridgeboston/railsbridgevm-3.2-a.box) and save it somewhere on your desktop or home folder.
+[this file](https://www.dropbox.com/s/n0hio7qcbvipbyd/railsbridgevm-2014-04-rc2.box) and save it somewhere on your desktop or home folder.
 MARKDOWN
 
 message <<-MARKDOWN
@@ -70,10 +70,8 @@ The second page is a developer survey, which you can skip. Just go to the bottom
 MARKDOWN
 
 message <<-MARKDOWN
-Once you have confirmed your developer account, you can download [Xcode
-3.1.4](http://adcdownload.apple.com/Developer_Tools/xcode_3.1.4_developer_tools/xcode314_2809_developerdvd.dmg).
-If that link doesn't work, go to the [downloads
-page](https://developer.apple.com/downloads) and search for "Xcode 3.1.4"
+Once you have confirmed your developer account, you can download [Xcode 3.1.4](http://adcdownload.apple.com/Developer_Tools/xcode_3.1.4_developer_tools/xcode314_2809_developerdvd.dmg).
+If that link doesn't work, go to the [downloads page](https://developer.apple.com/downloads) and search for "Xcode 3.1.4"
 MARKDOWN
 
 message <<-MARKDOWN
@@ -90,14 +88,14 @@ MARKDOWN
 
 message <<-MARKDOWN
 Download
-[VirtualBox](http://download.virtualbox.org/virtualbox/4.2.18/VirtualBox-4.2.18-88781-Win.exe)
+[VirtualBox](http://download.virtualbox.org/virtualbox/4.3.10/VirtualBox-4.3.10-93012-Win.exe)
 for Windows. Run the installer after it downloads. You can quit the application
 if it launches at the end of the installation.
 MARKDOWN
 
 message <<-MARKDOWN
 Download
-[Vagrant](https://dl.bintray.com/mitchellh/vagrant/Vagrant_1.4.3.msi)
+[Vagrant](https://dl.bintray.com/mitchellh/vagrant/vagrant_1.5.1.msi)
 for Windows. Run the installer after it downloads. Agree to restart the computer if you're prompted to do so.
 MARKDOWN
 
@@ -109,7 +107,7 @@ MARKDOWN
 
 message <<-MARKDOWN
 Download
-[this file](http://s3.amazonaws.com/railsbridgeboston/railsbridgevm-3.2-a.box) and save it somewhere on your desktop or home folder.
+[this file](https://www.dropbox.com/s/n0hio7qcbvipbyd/railsbridgevm-2014-04-rc2.box) and save it somewhere on your desktop or home folder.
 MARKDOWN
 
 message "If you have any trouble with the installers just keep the files on your computer and someone will help you at the Installfest on Friday."
