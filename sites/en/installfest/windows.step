@@ -53,7 +53,8 @@ step "Set up your Vagrant box" do
     C:\\Users\\Diligent Student\\Desktop\\railsbridge> vagrant ssh
     Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic-pae i686)
        ...many lines left out...
-    vagrant@precise32:~$
+    Changing directory to the shared ~/workspace folder for your convenience.
+    [RailsBridge VM] ~/workspace$
   BASH
 
 end
@@ -62,12 +63,10 @@ step "Open another Vagrant shell" do
   message "Leave this terminal window open on your computer. To open an extra Terminal (console) into the virtual machine, open another Git Shell window, then type:"
 
   console <<-BASH
-cd ~/Desktop/railsbridge
-vagrant ssh
-vagrant@precise32:~$ cd workspace
+    cd ~/Desktop/railsbridge
+    vagrant ssh
+    [RailsBridge VM] ~/workspace$
   BASH
-
-  tip "@TODO: workspace"
 
   message "Continue with the next step of the Installfest. @TODO LINKY BACK"
 end
@@ -78,8 +77,8 @@ step "Usage Tips" do
     message "When you're done for the day, logout and stop your machine:"
 
     console <<-BASH
-logout
-vagrant halt
+      logout
+      vagrant halt
     BASH
 
     message "And close the Git Shell window."
@@ -87,15 +86,15 @@ vagrant halt
     message "When you want to use the virtual machine (tomorrow morning, for instance), start your machine. Launch Git Shell, then:"
 
     console <<-BASH
-  cd ~/Desktop/railsbridge
-  vagrant up
-  vagrant ssh
+      cd ~/Desktop/railsbridge
+      vagrant up
+      vagrant ssh
     BASH
   end
 
   tip "Clearing the Terminal" do
     message "If you ever want to clear the terminal of all its cluttered output"
-    console "cls"
+    console "clear"
   end
 
   tip "Command History" do
