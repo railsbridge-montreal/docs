@@ -16,7 +16,22 @@ We assume you've already made at least one Rails app in the past. If you already
 MARKDOWN
 
 message <<-MARKDOWN
-## OS X 10.6 and above:
+## OS X Mavericks (10.9):
+MARKDOWN
+
+message <<-MARKDOWN
+Go to the [Apple Developer Center](https://developer.apple.com/downloads),
+and click Register. Fill out the first page with your account information.
+The second page is a developer survey, which you can skip. Just go to the bottom and click
+"Continue".
+MARKDOWN
+
+message <<-MARKDOWN
+Once you have confirmed your developer account, you can download [Commandline Tools for XCode](https://developer.apple.com/downloads/index.action) for your operating system.
+MARKDOWN
+
+message <<-MARKDOWN
+## OS X 10.6 - 10.8 and above:
 MARKDOWN
 
 message <<-MARKDOWN
@@ -36,22 +51,22 @@ MARKDOWN
 message "Don't worry about watching the video. Just leave the download in your Downloads folder."
 
 message <<-MARKDOWN
-### Option 2. Railsbridge Virtual Machine
+### Option 2. Manual
 MARKDOWN
 
 message <<-MARKDOWN
-Download
-[VirtualBox](http://download.virtualbox.org/virtualbox/4.3.10/VirtualBox-4.3.10-93012-OSX.dmg)
-for Mac. Run the installer after it downloads.
+Go to the [Apple Developer Center](https://developer.apple.com/downloads),
+and click Register. Fill out the first page with your account information.
+The second page is a developer survey, which you can skip. Just go to the bottom and click
+"Continue".
 MARKDOWN
 
 message <<-MARKDOWN
-Download [Vagrant](https://dl.bintray.com/mitchellh/vagrant/vagrant_1.5.1.dmg) for Mac. Run the installer after it downloads.
+Once you have confirmed your developer account, you can download [Commandline Tools for XCode](https://developer.apple.com/downloads/index.action) for your operating system.
 MARKDOWN
 
 message <<-MARKDOWN
-Download
-[this file](https://www.dropbox.com/s/n0hio7qcbvipbyd/railsbridgevm-2014-04-rc2.box) and save it somewhere on your desktop or home folder.
+Download the [Commandline Tools for XCode]. You will need to register as a developer.
 MARKDOWN
 
 message <<-MARKDOWN
