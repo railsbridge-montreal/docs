@@ -1,4 +1,4 @@
-important "Skip this step if you are in the Intro to Programming course."
+important "Skip to step 3 if you are in the Intro to Programming course."
 
 step "Have a volunteer check your tool versions" do
 
