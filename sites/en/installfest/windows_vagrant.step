@@ -1,3 +1,20 @@
+message "These instructions should work for all versions of Windows from XP to Windows 8."
+
+message "You may need to login as Administrator, or give the Administrator password when installing some programs, depending on your Windows version and user settings."
+
+message "Installing Ruby and Rails on Windows is easy thanks to the RailsBridge Virtual Machine."
+message "This setup will give you Ruby, Rails, Git and the Bash shell. Let's get started."
+
+message "Make sure you have performed the pre-workshop steps."
+
+
+step "Launch Git" do
+
+  message "Launch Github for Windows. It will install a few dependencies. Once this is done, you may close it again."
+
+  message "Launch the Git Shell. You can find a shortcut on your Desktop (grey circle with a cat), or locate **Git Shell** in All Programs under GitHub. A new (mostly black) window will open."
+
+end
 
 step "Set up your Vagrant box" do
 
@@ -19,13 +36,13 @@ step "Set up your Vagrant box" do
   message "After typing the last command, here is what you should see (approximately):"
 
   console <<-BASH
-    MarieLambs-MacBookPro:~/Desktop/railsbridge marie$ vagrant init railsbridgemontreal
+    C:\\Users\\DiligentStudent\\Desktop\\railsbridge> vagrant init railsbridgemontreal
 
     A `Vagrantfile` has been placed in this directory. You are now
     ready to `vagrant up` your first virtual environment! Please read
     the comments in the Vagrantfile as well as documentation on
     `vagrantup.com` for more information on using Vagrant.
-    MarieLambs-MacBookPro:~/Desktop/railsbridge marie$  vagrant up
+    C:\\Users\\DiligentStudent\\Desktop\\railsbridge> vagrant up
   BASH
 
   message "Bringing machine 'default' up with 'virtualbox' provider..."
@@ -33,7 +50,8 @@ step "Set up your Vagrant box" do
   console <<-BASH
        ...many lines left out...
     [default] -- /vagrant
-    MarieLambs-MacBookPro:~/Desktop/railsbridge marie$ vagrant ssh
+    C:\\Users\\Diligent Student\\Desktop\\railsbridge> vagrant ssh
+    Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic-pae i686)
        ...many lines left out...
     Changing directory to the shared ~/workspace folder for your convenience.
     [RailsBridge VM] ~/workspace$
@@ -42,7 +60,7 @@ step "Set up your Vagrant box" do
 end
 
 step "Open another Vagrant shell" do
-  message "Leave this terminal window open on your computer. To open an extra Terminal (console) into the virtual machine, open another Terminal window, then type:"
+  message "Leave this terminal window open on your computer. To open an extra Terminal (console) into the virtual machine, open another Git Shell window, then type:"
 
   console <<-BASH
     cd ~/Desktop/railsbridge
@@ -90,3 +108,6 @@ step "Usage Tips" do
     message "But if you must... in these instructions, where it says: \"Type this in the terminal:\", you can usually copy the command from this page, and right click in the menu bar or terminal window, then click on \"Paste\", then hit the **[enter]** key."
   end
 end
+
+
+next_step "configure_git"
