@@ -32,6 +32,15 @@ step "Show your Heroku app to a volunteer" do
   message "Visit the heroku site you made on the previous page and create a new drink."
 end
 
+step "RSVP for tomorrow's workshop" do
+  console "curl -s http://railsbridge-montreal.com/checks/script | ruby -"
+
+  result "You have the prerequisites installed for the following classes:\n" \
+      "Introduction to programming: Yes\n" \
+      "Introduction to Rails: Yes\n" \
+      "Rails for Developers: Yes" \
+end
+
 step "Congratulations!" do
   message "You get a sticker! (Or a high-five if there aren't any stickers)."
 end
