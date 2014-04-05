@@ -186,6 +186,12 @@ step "Deploy your app to Heroku" do
       message "SQLite and PostgreSQL are different kinds of databases.  We're using SQLite for our development and test environments because it's simple to install.  We're using PostgreSQL in our production environment because Heroku has done the hard work of installing it for us and it's more powerful than SQLite. We have seperate test, development and production databases by default in Rails."
     end
 
+    message "If you are using Vagrant, do the following step. If you are not sure you are using Vagrant, check if you see 'Railsbridge VM' before your cursor."
+
+    console <<-BASH
+sudo apt-get install sqlite3 libsqlite3-dev
+    BASH
+
     console <<-BASH
 bundle install --without production
     BASH
