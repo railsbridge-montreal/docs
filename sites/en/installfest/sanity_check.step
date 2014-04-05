@@ -33,7 +33,7 @@ step "Show your Heroku app to a volunteer" do
 end
 
 step "RSVP for tomorrow's workshop" do
-  console "curl -s http://railsbridge-montreal.com/checks/script | ruby -"
+  console "curl -s http://www.railsbridge-montreal.com/checks/script | ruby -"
 
   result "You have the prerequisites installed for the following classes:\n" \
       "Introduction to programming: Yes\n" \
