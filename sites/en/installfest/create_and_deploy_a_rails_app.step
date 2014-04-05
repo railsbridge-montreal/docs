@@ -250,6 +250,10 @@ bundle install --without production
 
     console "heroku run rake db:migrate"
 
+    message "If that does not work and you get an error message along the lines of 'Error connecting to process'"
+
+    console "heroku run:detached rake db:migrate"
+
     result <<-OUTPUT
       Migrating to CreateDrinks (20120428044153)
       ==  CreateDrinks: migrating ===================================================
