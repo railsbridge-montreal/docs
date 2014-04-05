@@ -25,7 +25,7 @@ step "Set up your Vagrant box" do
   console <<-BASH
     mkdir ~/Desktop/railsbridge
     cd ~/Desktop/railsbridge
-    vagrant box add railsbridgemontreal railsbridgevm-2014-04.box
+    vagrant box add --name railsbridgemontreal railsbridgevm-2014-04-rc2.box
     vagrant init railsbridgemontreal
     vagrant up
     vagrant ssh
