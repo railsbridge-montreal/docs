@@ -1,8 +1,9 @@
 step "Choose your instructions" do
     message "Make your choice based on the workshop you will be attending tomorrow."
 
-You may need to login as Administrator, or give the Administrator password when installing some programs, depending on your Windows version and user settings.
-MARKDOWN
+    tip "You may need to login as Administrator, or give the Administrator password when installing some programs, depending on your Windows version and user settings."
+end
+
 
 step "Run RailsInstaller" do
   message "RailsInstaller includes Rails, Ruby, Git and SQLite."
