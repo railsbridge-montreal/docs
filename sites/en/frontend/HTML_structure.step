@@ -8,15 +8,15 @@ overview do
 
   message <<-MARKDOWN
 
-## The HTML tag and Doctype
+## The HTML tag and DOCTYPE
 
-The line `<!DOCTYPE html>` is called the doctype, and it tells the browser which flavor of HTML you're using. `<!DOCTYPE html>` tells your browser you're using HTML5, the latest version of HTML. 
+`<!DOCTYPE html>` is called the doctype, and it tells the browser which flavor of HTML you're using. `<!DOCTYPE html>` tells your browser you're using HTML5, the latest version of HTML.
 
 (You may see older doctypes out there that are longer and a lot more complicated, from when people
-used various HTML and XHTML versions, but those are annoying, and you can usually just
+used various HTML and XHTML versions. You can usually just
 use this short version for new websites.)
 
-The `<html>` encloses all the rest of your page, and states unequivocally, "Here is my HTML!!!"
+The `<html>` encloses all the rest of your page and states "Here is my HTML!"
 
 ## Pages, Like People, Have a Head and a Body
 
@@ -24,28 +24,44 @@ The `<html>` encloses all the rest of your page, and states unequivocally, "Here
   source_code :html, <<HTML
 <!DOCTYPE html>
 <html>
-  <head>Invisible, Important Stuff</head>
-  <body>Actual Visible Content</body>
+  <head>
+    <!-- Important invisible details will go here! -->
+  </head>
+  <body>
+    Visible Content
+  </body>
 </html>
 HTML
   message <<-MARKDOWN
 
 ### The Head
 
-The head contains information _about_ the document, including:
+The `head` contains information that is not displayed in your browser. It has metadata (data about data) tags that can tell a search engine or another program more about the file, like who wrote it or what keywords are relevant, such as:
 
-* what language or character set you're using
-* what the page title should be
-* what CSS and JavaScript files to include (and where they are)
+ * What language or character set you're using: `<meta charset="utf-8">`
+ * What the page title should be: `<title>HTML!</title>`
+ * What CSS and JavaScript files to include (and where they are): `<link rel="stylesheet" href="style.css">`
 
-Information in the `<head>` section is __not__ displayed. 
+  MARKDOWN
+  source_code :html, <<HTML
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML!</title>
+    <link rel="stylesheet" href="style.css">
 
-It can also contain metadata tags that can tell a search engine or another
-program more about the file, like who wrote it or what keywords are relevant.
+    <meta charset="utf-8">
+    <meta name="keywords" content="HTML, CSS, JavaScript, Meta">
+    <meta name="description" content="Learning HTML, CSS, & JS one step at a time.">
+  </head>
+</html>
+HTML
+  message <<-MARKDOWN
+
 
 ### The Body
 
-The Body contains the actual content of your file, the things you'll want your users
+The body contains the actual content of your file, the things you'll want your users
 to be able to see, read, or interact with!
 
   MARKDOWN
@@ -56,7 +72,7 @@ steps do
 
   step do
     message <<-MARKDOWN
-Let's add the doctype, HTML, head, and body tags to your file. It should look like this:
+Let's add the doctype, HTML, head, and body tags to your hello.html file. It should look something like this:
 
 <img src='img/hello_structure.png'>
 
@@ -80,4 +96,3 @@ When you refresh your browser, you should see the title on the tab in Chrome.
 end
 
 next_step "basic_CSS"
-

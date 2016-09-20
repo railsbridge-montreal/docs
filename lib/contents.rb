@@ -1,26 +1,17 @@
 require 'titleizer'
 
 class Contents < Erector::Widget
-  attr_accessor :site_dir
-  attr_accessor :page_name
-  # todo: replace site_name, locale, site_dir with Site object
-  needs :page_name, :site_name, :locale => nil, :site_dir => nil
+  attr_accessor :page_name, :site
+  needs :page_name, :site
 
   def initialize options
     super options
 
     self.page_name = options[:page_name]
-
-    if options.include? :site_dir  # used in tests
-      @site_dir = options[:site_dir]
-    else
-      site = Site.named(@site_name, @locale)
-      @site_dir = site.dir if site
-    end
   end
 
   def site_files ext
-    Dir.glob("#{site_dir}/*.{#{ext}}").sort
+    Dir.glob(File.join(site.dir, "*.{#{ext}}")).sort
   end
 
   def parseable_site_files
@@ -32,33 +23,34 @@ class Contents < Erector::Widget
   end
 
   def content_for filename
-    open("#{site_dir}/#{filename}").read()
+    open(File.join(site.dir, filename)).read
   end
 
   def subpages_for filename
+    return [] if filename.match(/deck\.md/)
+
     links = []
-    return links if filename.match(/deck\.md/)
     content = content_for(filename)
 
     # (markdown) links of the form: [link text](link_page)
-    content.scan /\[.*?\]\((.*?)\)/ do |link, _|
+    # but NOT images of the form ![alt text](image_link.jpg)
+    content.scan /[^!]\[.*?\]\((.*?)\)/ do |link, _|
       next if (link =~ /^http/)
       next if (link =~ %r(^//)) # protocol-less absolute links e.g. //google.com
-      next if (link =~ /(jpg|png)$/)
-      links.push(link) if !links.include? link
+      links.push(link)
     end
 
     # (stepfiles) links of the form: link "next page"
     content.scan /link\s*["'](.*?)["']/ do |link, _|
-      links.push(link) if !links.include? link
+      links.push(link)
     end
 
     # (stepfiles) links of the form: site_desc "some site"
     content.scan /site_desc\s*["'](.*?)["']/ do |link, _|
-      links.push('/' + link) if !links.include? link
+      links.push('/' + link)
     end
 
-    links
+    links.uniq
   end
 
   def next_step_for filename
@@ -112,7 +104,7 @@ class Contents < Erector::Widget
   #   while another goes to next_step "that").
   def hierarchy
     result = []
-    next_page = File.basename(site_dir)
+    next_page = File.basename(site.dir)
     while next_page do
       this_page = next_page
 
@@ -157,7 +149,7 @@ class Contents < Erector::Widget
 
   def toc_link page, options = {}
     link_text = Titleizer.title_for_page(page.sub(%r{^/}, ''))
-    path = page.start_with?('/') ? page : "/#{@site_name}/" + page
+    path = page.start_with?('/') ? page : "/#{site.name}/" + page
     collapse_classes = if options[:collapsable]
                          options[:collapsed] ? 'collapsable closed' : 'collapsable'
                        else
@@ -228,7 +220,7 @@ class Contents < Erector::Widget
       toc_list(mark_open_and_closed(hierarchy)[:items])
 
       unless orphans.empty?
-        h1 "Other Pages"
+        h1 I18n.t("general.other_pages")
         ul do
           orphans.each { |orphan| toc_link orphan }
         end
@@ -237,7 +229,7 @@ class Contents < Erector::Widget
       if has_collapsables(hierarchy)
         span class: "expand-all" do
           i class: "fa fa-arrows-alt"
-          text "Expand All"
+          text I18n.t("general.expand_all")
         end
       end
     end

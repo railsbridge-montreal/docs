@@ -1,8 +1,11 @@
 require "spec_helper"
-
+require "site"
 require "markdown_page"
 
 describe MarkdownPage do
+  before do
+    setup_test_translations
+  end
 
   it "renders markdown into html" do
     src = <<-MARKDOWN.strip_heredoc
@@ -18,20 +21,17 @@ describe MarkdownPage do
 
     page = MarkdownPage.new(
       src: src,
-      site_name: "greetings",
+      site: Site.new("greetings"),
       page_name: 'hello',
       doc_title: "Hello",
       doc_path: "/tmp/hello.step",
       locale: "en"
     )
 
-    # this is a hack to make the TOC work in the absence of a real site
-    Site.should_receive(:named).and_return(double(dir: "/tmp"))
-
     html_doc = Nokogiri.parse(page.to_html)
     main_html = html_doc.css("main").first.serialize(:save_with => 0).chomp
 
-    assert_loosely_equal(main_html, <<-HTML.strip_heredoc)
+    expect(main_html).to loosely_equal(<<-HTML.strip_heredoc)
       <main>
         <a href="hello.step.deck" style="float: right">Slides</a>
         <h1 class="doc_title">Hello</h1>

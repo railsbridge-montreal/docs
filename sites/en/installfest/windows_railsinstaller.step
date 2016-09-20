@@ -1,30 +1,24 @@
-message <<-MARKDOWN
-These instructions should work for all versions of Windows from XP to Windows 8.
+step "Choose your instructions" do
+    message "Make your choice based on the workshop you will be attending tomorrow."
 
-You may need to login as Administrator, or give the Administrator password when installing some programs, depending on your Windows version and user settings.
-MARKDOWN
+    tip "You may need to login as Administrator, or give the Administrator password when installing some programs, depending on your Windows version and user settings."
+end
+
 
 step "Run RailsInstaller" do
+  message "RailsInstaller includes Rails, Ruby, Git and SQLite."
+  message "Go to <http://railsinstaller.org/>, scroll to the 'Downloads' section, and download the RailsInstaller for Windows/Ruby #{version_string(:windows_ruby_short)}."
+  message "Click on the downloaded file to run the install wizard.  Click Next at each step to accept the defaults."
+  message "Be sure to check the boxes for *Install git (recommended)* and  *Add executables for Ruby, DevKit Git (if checked above) to the PATH*"
 
-  message <<-MARKDOWN
-  RailsInstaller includes Rails, Ruby, Git, and SQLite.
+  img src: "img/WinRailsInstaller.jpg", alt: "Screenshot showing location of checkboxes for ensuring that Git is installed"
 
-  Go to <http://railsinstaller.org/>, scroll to the 'Downloads' section, and download the RailsInstaller for Windows/Ruby 1.9.
-
-  Click on the downloaded file to run the install wizard.  Click Next at each step to accept the defaults.
-
-  Be sure to check the boxes for *Install git (recommended)* and  *Add executables for Ruby, DevKit Git (if checked above) to the PATH*
-
-  ![WinRailsInstaller.jpg](img/WinRailsInstaller.jpg)
-
-  Rails will be installed in C:\\RailsInstaller and the directory for your Rails projects will be C:\\Sites
-
-  MARKDOWN
+  message "Rails will be installed in C:\\RailsInstaller and the directory for your Rails projects will be C:\\Sites"
 end
 
 step "Configure your git and ssh environment" do
 
-  important "At the end of the installer there will be a checkbox asking 'configure your git and ssh environment'. **Leave this box checked.** It will open a terminal window that you need to **type into**."
+  important "At the end of the installer there will be a checkbox asking 'Configure git and ssh when installation has completed'. **Leave this box checked.** It will open a terminal window that you need to **type into**."
 
   message "When it asks *Please enter your name, for example mine is: Wayne E. Seguin*"
   message "Type *your actual full name* into the console and press **[enter]**"
@@ -38,37 +32,26 @@ step "Configure your git and ssh environment" do
     message "After this step you will have some **git config settings** and you will also have an **ssh key**."
   end
 
+  message "Here is a summary of your settings after this process:"
+
+  img src: 'img/railsbridge_windowsScreenshot-commandprompt_ror.png', alt: "Screenshot showing correct git, ruby, rails and ssh settings"
+
+  message "Close the command prompt window."
 end
 
-step "Windows 8 Only — Install Node.js" do
+step "Update Git" do
 
-  message "Go to <http://nodejs.org> and download the installer"
+  message "The version of Git that comes with RailsInstaller is old, so we will be updating that next."
 
-  message "Click on the downloaded file to run the install wizard. Click Next at each step to accept the defaults."
+  message "Go to <http://git-scm.com> and download the installer. You want version 1.9.5 or newer."
 
-  message "**Reboot your computer.**"
+  message "Run the installer, and it will ask you where you want to install it. Change it FROM C:\\Program Files\\Git  TO, C:\\RailsInstaller\\Git like the picture below."
 
-  message "Once your computer is back up, load **Command Prompt with Ruby and Rails** (see below) and..."
+  img src: 'img/directory.png', alt: "Screenshot showing the step of installation where the location to install git is set"
 
-  console "node -v"
-  fuzzy_result "v0{FUZZY}.8.x{/FUZZY}"
-end
+  message "It will warn you that the directory already exists. Click yes to install to that folder anyway."
 
-step "Update Rails" do
-  message "Currently, RailsInstaller installs Rails 3.2.x, but we want 4.x. Upgrading Rails is pretty easy:"
-
-  console "gem install rails"
-
-  message "...and you're done. New Rails! Woo."
-end
-
-step "Sanity Check" do
-
-  console "ruby -v"
-  fuzzy_result "ruby 1.9.3{FUZZY}p125{/FUZZY}"
-
-  console "rails -v"
-  fuzzy_result "Rails 4.0{FUZZY}.x{/FUZZY}"
+  message "Keep going using the default selections and you'll have the latest version of Git installed!"
 
 end
 
@@ -79,18 +62,60 @@ step "Open a Terminal" do
 
   message "RailsInstaller made a special Terminal for you to use when you're working on Ruby, Rails, or Git."
 
-  message "To open the special Terminal, choose **All Programs** on the Start menu, then choose **RailsInstaller** and then **Command Prompt with Ruby and Rails**. You should do all your Rails work in this RailsInstaller DOS window."
+  message "To open the special Terminal, search for **Command Prompt with Ruby and Rails**."
 
-  img src: 'img/railsbridge_findingCommandPrompt.png'
+  div do
+    option_half "Windows 7" do
+      img src: 'img/railsbridge_windows_findingCommandPrompt_win7.png', alt: "Screenshot showing search for command prompt"
+    end
 
-  tip "Pin It to Win It" do
-    img src: 'img/railsbridge_windowsScreenshot-commandprompt-pinnedtotaskbar.png', alt: 'Pin the Command Prompt to the Task Bar'
+    option_half "Windows 8" do
+      img src: 'img/railsbridge_windows_findingCommandPrompt_win8.png', alt: "Screenshot showing search for command prompt"
+    end
   end
 
-  message "Here is a summary of your settings after this process:"
+  message "You should do all your Rails work in this RailsInstaller DOS window."
 
-  img src: 'img/railsbridge_windowsScreenshot-commandprompt_ror.jpg'
+  tip "Pin It to Win It" do
+    message 'Pinning the Command Prompt to the taskbar is a handy shortcut.'
 
+    img src: 'img/railsbridge_windowsScreenshot-commandprompt-pinnedtotaskbar.png', alt: 'Pin the Command Prompt to the Task Bar'
+  end
+end
+
+a name: 'install-node'
+step "Install Node.js" do
+
+  message "Go to <http://nodejs.org> and download the installer. Pick the one that is \"recommended for most users.\""
+
+  message "Click on the downloaded file to run the install wizard. Click Next at each step to accept the defaults."
+
+  message "**Reboot your computer.**"
+
+  message "Once your computer is back up, load **Command Prompt with Ruby and Rails** and..."
+
+  console "node -v"
+  fuzzy_result "v4{FUZZY}.x.x{/FUZZY}"
+end
+
+step "Update Rails" do
+  message "Currently, RailsInstaller installs Rails 5.0.x, but we want the latest. Upgrading Rails is pretty easy:"
+
+  console "gem install rails --no-document"
+
+  message "...and you're done. New Rails! Woo."
+end
+
+step "Sanity Check" do
+
+  console "ruby -v"
+  fuzzy_result "ruby #{version_string(:windows_ruby_short)}{FUZZY}.4{/FUZZY}"
+
+  console "rails -v"
+  fuzzy_result "Rails 5.0{FUZZY}.x{/FUZZY}"
+
+  console "git --version"
+  fuzzy_result "git version 2{FUZZY}.9.2.windows.1{/FUZZY}"
 end
 
 step "Configure the Windows Terminal" do
@@ -127,4 +152,4 @@ step "Install a Text Editor" do
   message "Download Sublime Text 2 here: <http://www.sublimetext.com/2>"
 end
 
-next_step "configure_git"
+next_step "create_a_heroku_account"
