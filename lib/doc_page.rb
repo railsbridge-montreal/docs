@@ -4,7 +4,6 @@ require "site_index"
 require 'erector_scss'
 require 'titleizer'
 require 'html5_page'
-require 'flags'
 require 'erb'
 
 class DocPage < Html5Page
@@ -74,7 +73,6 @@ class DocPage < Html5Page
         }
       }
       ul(class: "navbar-nav nav") {
-        widget Flags, locale: @locale
 
         li(class: "dropdown") {
           a("sites", href: "#", class: "dropdown-toggle", "data-toggle" => "dropdown")
