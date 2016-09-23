@@ -109,5 +109,9 @@ step "Usage Tips" do
   end
 end
 
+step "Install a Text Editor" do
+  insert "install_text_editor_windows"
+end
+
 
 next_step "configure_git"
