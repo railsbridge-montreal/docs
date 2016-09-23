@@ -64,6 +64,6 @@ steps do
     tip "A note about your password. In order to push to GitHub, you'll need to type your password in at the terminal. So make it something easy to remember and type but hard to guess."
   end
 
-  next_step "get_a_sticker"
+  next_step "sanity_check"
 end
 
